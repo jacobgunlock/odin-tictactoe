@@ -1,0 +1,43 @@
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    margin: auto;
+    height: 450px;
+    width: 450px;
+    background-color: rgb(134, 193, 175);
+    border: solid;
+    border-radius: 30px;
+    padding: 2%;
+}
+
+.grid-item {
+    background-color: rgb(182, 216, 205);
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    border-radius: 30px;
+    margin: 2%;
+}
+
+.grid-item:hover {
+    background-color: aqua;
+}
+
+.players {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5%;
+}
+
+.is-turn {
+    border: solid;
+    padding: 1%;
+    border-radius: 50%;
+}
+
+.hidden {
+    display: none;
+}
