@@ -67,20 +67,32 @@ const TicTacToe = (() => {
             third = array[2];
             if(X.includes(first) && X.includes(second) && X.includes(third)){
                 gameWon = true;
-                alert('X wins!');
                 highlightWin();
                 displayReset();
+                displayResult('X');
             } else if (O.includes(first) && O.includes(second) && O.includes(third)){
                 gameWon = true;
-                alert('O wins!');
                 highlightWin();
                 displayReset();
+                displayResult('O');
             }
         });
         if(!board.includes('') && gameWon === false){
-            alert('tie');
+            displayResult('Tie')
             displayReset();
         };
+    }
+
+    function displayResult(marker) {
+        const winner = document.createElement('div');
+        winner.setAttribute('class', 'winner')
+        const h1 = document.querySelector('h1');
+        if (marker === 'Tie') {
+            winner.innerText = "It's a Tie!"
+            h1.appendChild(winner)
+        } else
+        winner.innerText = `${marker} Wins!`
+        h1.appendChild(winner)
     }
 
     function highlightWin() {
@@ -104,7 +116,8 @@ const TicTacToe = (() => {
 
     function resetGrid() {
         board = ['','','','','','','','',''];
-        const resetBtn = document.querySelector('.reset-btn')
+        const resetBtn = document.querySelector('.reset-btn');
+        document.querySelector('h1').innerHTML = 'tic-tac-toe!'
         resetBtn.classList.add('hidden');
         resetBtn.removeEventListener('click', resetGrid);
         gameboard.innerHTML = '';
